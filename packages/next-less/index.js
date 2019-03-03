@@ -14,7 +14,8 @@ module.exports = (nextConfig = {}) => {
         cssModules,
         cssLoaderOptions,
         postcssLoaderOptions,
-        lessLoaderOptions = {}
+        lessLoaderOptions = {},
+        preLoaders = []
       } = nextConfig
 
       options.defaultLoaders.less = cssLoaderConfig(config, {
@@ -28,7 +29,8 @@ module.exports = (nextConfig = {}) => {
           {
             loader: 'less-loader',
             options: lessLoaderOptions
-          }
+          },
+          ...preLoaders
         ]
       })
 
